@@ -1,12 +1,9 @@
 package services;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import models.Ingredient;
 import models.Recipe;
-import play.libs.Json;
 
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeService {
@@ -33,6 +30,4 @@ public class RecipeService {
 
         return result;
     }
-
-
 }
