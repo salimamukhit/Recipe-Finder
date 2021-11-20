@@ -9,20 +9,10 @@ import java.util.Objects;
 @Table(name = "t_recipes")
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
     @Column(name="vname")
     private String name;
     @Column(name = "vurl")
     private String url;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -43,11 +33,11 @@ public class Recipe {
     @Override
     public boolean equals(Object o) {
         Recipe recipe = (Recipe) o;
-        return Objects.equals(id, recipe.id);
+        return Objects.equals(name, recipe.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, url);
+        return Objects.hash(name, url);
     }
 }

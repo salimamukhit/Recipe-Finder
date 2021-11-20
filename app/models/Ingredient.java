@@ -11,8 +11,9 @@ public class Ingredient {
     private Long id;
     @Column(name="vname")
     private String name;
-    @Column(name = "vrecipe")
-    private String recipeName;
+    @OneToOne
+    @JoinColumn(name = "vrecipe")
+    private Recipe recipe;
 
     public Long getId() {
         return id;
@@ -30,14 +31,6 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getRecipeName() {
-        return recipeName;
-    }
-
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName;
-    }
-
     @Override
     public boolean equals(Object o) {
         Ingredient ingredient = (Ingredient) o;
@@ -46,6 +39,6 @@ public class Ingredient {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, recipeName);
+        return Objects.hash(id, name, recipe);
     }
 }
