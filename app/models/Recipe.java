@@ -3,6 +3,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,8 @@ public class Recipe {
     private String name;
     @Column(name = "vurl")
     private String url;
+    @OneToMany(mappedBy = "recipe")
+    private List<Ingredient> ingredients;
 
     public String getName() {
         return name;
@@ -28,6 +31,14 @@ public class Recipe {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override

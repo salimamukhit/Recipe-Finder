@@ -11,7 +11,7 @@ public class Ingredient {
     private Long id;
     @Column(name="vname")
     private String name;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "vrecipe")
     private Recipe recipe;
 

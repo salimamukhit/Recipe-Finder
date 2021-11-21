@@ -44,4 +44,12 @@ public class RecipeController {
             return ok(Json.toJson(result));
         });
     }
+
+    public Result getIngredients(String recipeName) {
+        return jpaApi.withTransaction(em -> {
+            List<Ingredient> result = null;
+            result = recipeService.getIngredients(em, recipeName);
+            return ok(Json.toJson(result));
+        });
+    }
 }

@@ -30,4 +30,12 @@ public class RecipeService {
 
         return result;
     }
+
+    public List<Ingredient> getIngredients(EntityManager em, String recipeName) {
+        List<Ingredient> result = null;
+
+        result = em.createQuery("select rc.ingredients from Recipe rc where rc.name = '" + recipeName + "'").getResultList();
+
+        return result;
+    }
 }
