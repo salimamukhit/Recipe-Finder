@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,6 +9,7 @@ import java.util.Objects;
 @Table(name = "t_ingredients")
 public class Ingredient {
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name="vname")
