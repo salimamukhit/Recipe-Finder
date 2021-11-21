@@ -10,10 +10,10 @@ import java.util.Objects;
 @Table(name = "t_recipes")
 public class Recipe {
     @Id
-    @Column(name="vname")
-    private String name;
-    @Column(name = "vurl")
+    @Column(name="vurl")
     private String url;
+    @Column(name = "vname")
+    private String name;
     @OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredients;
 
