@@ -32,7 +32,18 @@ public class RecipeController {
     public Result getRecipeList(String ingredients) {
         return jpaApi.withTransaction(em -> {
             List<Recipe> result = null;
-            result = recipeService.getRecipeList(em, ingredients);
+
+            // Prepare a string for SQL
+            String[] query = ingredients.split(",");
+            String queryStr = "";
+            for (String str : query) {
+                str = str.replaceAll("'", "''"); // An escape character for quotes
+                String s = "'" + str + "'" + ",";
+                queryStr += s;
+            }
+
+            queryStr = queryStr.substring(0, queryStr.length() - 1);
+            result = recipeService.getRecipeList(em, queryStr);
             return ok(Json.toJson(result));
         });
     }
