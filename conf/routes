@@ -11,10 +11,10 @@ GET     /assets/*file                      controllers.Assets.versioned(path="/p
 
 GET     /recipes                           controllers.RecipeController.getAllRecipes
 
-GET     /recipes/list/:query               controllers.RecipeController.getRecipeList(query: String)
+GET     /recipes/list                      controllers.RecipeController.getRecipeList(query: Request)
 
 GET     /ingredients                       controllers.RecipeController.getAllIngredients
 
-GET     /ingredients/recipe/:recipeName    controllers.RecipeController.getIngredients(recipeName: String)
+GET     /ingredients/recipe                controllers.RecipeController.getIngredients(recipeName: String)
 
       
