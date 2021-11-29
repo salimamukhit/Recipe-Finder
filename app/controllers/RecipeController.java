@@ -37,6 +37,7 @@ public class RecipeController {
             String[] query = ingredients.split(",");
             String queryStr = "";
             for (String str : query) {
+                str = str.replaceAll("\\+", " ");
                 str = str.replaceAll("'", "''"); // An escape character for quotes
                 String s = "'" + str + "'" + ",";
                 queryStr += s;
