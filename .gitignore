@@ -16,3 +16,4 @@ dist
 
 # added to gitignore to preserve values and to not accidentally publish passwords
 /conf/application.conf
+conf/application.conf
